@@ -17,76 +17,88 @@ class _RallyNavRailState extends State<RallyNavRail> {
 
   @override
   Widget build(BuildContext context) {
-    return NavigationRail(
-      backgroundColor: const Color(0Xff33333e),
-      leading: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Image.network(
-          'https://play-lh.googleusercontent.com/ZaGzaQC0aHnAgAcTIKu3t8q44OIlhiSH7m4ML2iJ4Yd-F6qnD3bDU8nMutQzPo7-AOn6=w240-h480-rw',
-          height: 100,
-          width: 100,
+    return LayoutBuilder(
+      builder: (context, constraint) => ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: SingleChildScrollView(
+          child: ConstrainedBox(
+            constraints: BoxConstraints(minHeight: constraint.maxHeight),
+            child: IntrinsicHeight(
+              child: NavigationRail(
+                backgroundColor: const Color(0Xff33333e),
+                leading: Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Image.network(
+                    'https://play-lh.googleusercontent.com/ZaGzaQC0aHnAgAcTIKu3t8q44OIlhiSH7m4ML2iJ4Yd-F6qnD3bDU8nMutQzPo7-AOn6=w240-h480-rw',
+                    height: 100,
+                    width: 100,
+                  ),
+                ),
+                selectedIndex: _selectedIndex,
+                groupAlignment: groupAligment,
+                onDestinationSelected: (int index) {
+                  setState(() {
+                    _selectedIndex = index;
+                  });
+                },
+                destinations: <NavigationRailDestination>[
+                  NavigationRailDestination(
+                    icon: const Icon(
+                      Icons.bookmark_border,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      'Overview',
+                      style: primaryTextStyle,
+                    ),
+                  ),
+                  NavigationRailDestination(
+                    icon: const Icon(
+                      Icons.attach_money,
+                      color: Colors.white,
+                    ),
+                    selectedIcon: const Icon(Icons.attach_money),
+                    label: Text(
+                      'Accounts',
+                      style: primaryTextStyle,
+                    ),
+                  ),
+                  NavigationRailDestination(
+                    icon: const Icon(
+                      Icons.money_off,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      'Bills',
+                      style: primaryTextStyle,
+                    ),
+                  ),
+                  NavigationRailDestination(
+                    icon: const Icon(
+                      Icons.account_balance,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      'Budgets',
+                      style: primaryTextStyle,
+                    ),
+                  ),
+                  NavigationRailDestination(
+                    icon: const Icon(
+                      Icons.settings,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      'Settings',
+                      style: primaryTextStyle,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
-      selectedIndex: _selectedIndex,
-      groupAlignment: groupAligment,
-      onDestinationSelected: (int index) {
-        setState(() {
-          _selectedIndex = index;
-        });
-      },
-      destinations: <NavigationRailDestination>[
-        NavigationRailDestination(
-          icon: const Icon(
-            Icons.bookmark_border,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Overview',
-            style: primaryTextStyle,
-          ),
-        ),
-        NavigationRailDestination(
-          icon: const Icon(
-            Icons.attach_money,
-            color: Colors.white,
-          ),
-          selectedIcon: const Icon(Icons.attach_money),
-          label: Text(
-            'Accounts',
-            style: primaryTextStyle,
-          ),
-        ),
-        NavigationRailDestination(
-          icon: const Icon(
-            Icons.money_off,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Bills',
-            style: primaryTextStyle,
-          ),
-        ),
-        NavigationRailDestination(
-          icon: const Icon(
-            Icons.account_balance,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Budgets',
-            style: primaryTextStyle,
-          ),
-        ),
-        NavigationRailDestination(
-          icon: const Icon(
-            Icons.settings,
-            color: Colors.white,
-          ),
-          label: Text(
-            'Settings',
-            style: primaryTextStyle,
-          ),
-        ),
-      ],
     );
   }
 }
