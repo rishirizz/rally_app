@@ -94,7 +94,7 @@ class CardSeeAll extends StatelessWidget {
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           elevation: 0,
-          primary: const Color(0xff33333e),
+          backgroundColor: const Color(0xff33333e),
         ),
         onPressed: () {},
         child: Padding(

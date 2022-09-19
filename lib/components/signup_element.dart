@@ -21,7 +21,7 @@ class SignUpElement extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(10, 15, 15, 10),
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
-              primary: const Color(0xff33333e),
+              backgroundColor: const Color(0xff33333e),
               elevation: 0,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(15),

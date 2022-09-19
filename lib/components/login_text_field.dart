@@ -66,7 +66,7 @@ class LoginTextField extends StatelessWidget {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                primary: const Color(0xff1aa573),
+                backgroundColor: const Color(0xff1aa573),
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(15),
