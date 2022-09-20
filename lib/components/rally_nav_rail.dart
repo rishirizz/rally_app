@@ -40,6 +40,47 @@ class _RallyNavRailState extends State<RallyNavRail> {
                   setState(() {
                     _selectedIndex = index;
                   });
+                  switch (index) {
+                    case 0:
+                      Navigator.pop(context);
+                      Navigator.pushNamed(context, '/home');
+                      break;
+                    case 1:
+                      Navigator.popUntil(
+                        context,
+                        ModalRoute.withName('/home'),
+                      );
+                      Navigator.pushNamed(context, '/menuItem');
+
+                      break;
+                    case 2:
+                      Navigator.popUntil(
+                        context,
+                        ModalRoute.withName('/home'),
+                      );
+                      Navigator.pushNamed(context, '/menuItem');
+
+                      break;
+                    case 3:
+                      Navigator.popUntil(
+                        context,
+                        ModalRoute.withName('/home'),
+                      );
+                      Navigator.pushNamed(context, '/menuItem');
+                      break;
+                    case 4:
+                      Navigator.popUntil(
+                        context,
+                        ModalRoute.withName('/home'),
+                      );
+                      Navigator.pushNamed(context, '/settings');
+                      break;
+                    default:
+                      Navigator.popUntil(
+                        context,
+                        ModalRoute.withName('/home'),
+                      );
+                  }
                 },
                 destinations: <NavigationRailDestination>[
                   NavigationRailDestination(
