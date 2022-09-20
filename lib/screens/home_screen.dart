@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rally_app/layouts/desktop_view.dart';
 import 'package:rally_app/styles/text_styles.dart';
 
+import '../components/rally_app_bar.dart';
 import '../layouts/mobile_view.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,44 +19,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: const Color(0Xff33333e),
         appBar: (MediaQuery.of(context).size.width <= 800)
-            ? AppBar(
-                automaticallyImplyLeading: false,
-                elevation: 0,
-                backgroundColor: const Color(0Xff33333e),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    IconButton(
-                      icon: const Icon(
-                        Icons.bookmark_border,
-                      ),
-                      color: Colors.white,
-                      onPressed: (() {
-                        Navigator.pushNamed(context, '/home');
-                      }),
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.attach_money),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.money_off),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.account_balance),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.settings),
-                      color: Colors.white,
-                      onPressed: () {},
-                    ),
-                  ],
-                ),
+            ? const PreferredSize(
+                preferredSize: Size.fromHeight(66),
+                child: RallyAppBar(),
               )
             : null,
         floatingActionButton: Padding(
@@ -85,3 +51,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+

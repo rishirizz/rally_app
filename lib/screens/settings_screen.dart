@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rally_app/components/rally_nav_rail.dart';
+import 'package:rally_app/main.dart';
+import 'package:rally_app/screens/home_screen.dart';
+import '../components/rally_app_bar.dart';
 import '../components/settings_tile.dart';
 
 class SettingsScreen extends StatelessWidget {
@@ -10,9 +13,15 @@ class SettingsScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         backgroundColor: const Color(0Xff33333e),
+        appBar: (MediaQuery.of(context).size.width <= 800)
+            ? const PreferredSize(
+                preferredSize: Size.fromHeight(66),
+                child: RallyAppBar(),
+              )
+            : null,
         body: Row(
           children: [
-            const RallyNavRail(),
+            if (MediaQuery.of(context).size.width > 800) const RallyNavRail(),
             const SizedBox(
               width: 20,
             ),
